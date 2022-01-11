@@ -1,1 +1,1 @@
-# livenews
+# livenews on single screen
