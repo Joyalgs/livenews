@@ -1,1 +1,2 @@
-# livenews on single screen
+# live news on single screen
+Demo : https://joyalgs.github.io/livenews/
