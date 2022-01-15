@@ -6,10 +6,10 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <meta property="og:site_name" content="Watch Live Tamil News channels on one screen">
-  <meta property="og:title" content="Watch Live Tamil News channels on one screen" />
+  <meta property="og:site_name" content="Watch Live News channels on one screen">
+  <meta property="og:title" content="Watch Live News channels on one screen" />
   <meta property="og:description" content="Compatible with TV, Mobile, Tab,.." />
-  <meta property="og:image" itemprop="image" content="https://joyalgs.github.io/livenews/TamilLiveNews_1.jpg">  
+  <meta property="og:image" itemprop="image" content="https://joyalgs.github.io/livenews/TamilLiveNews.jpg">
   <meta property="og:type" content="website" />
   <meta property="og:updated_time" content="1440432930" />
 
@@ -37,13 +37,13 @@
       height: 100%;
     }
   </style>
-  <title>Tamil Live News on one screen</title>
+  <title>Live News on one screen</title>
   <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
   <link rel="icon" href="/favicon.ico" type="image/x-icon">
 </head>
 
 <body>
-  <div class="container-fluid bg-dark">
+  <div class="container-fluid bg-light">
     <div class="row" style="height: 0;">
       <div class="col">
         <a href='http://www.freevisitorcounters.com'>Free Counters</a>
@@ -52,38 +52,17 @@
         <script type="text/javascript" src="https://www.freevisitorcounters.com/en/home/counter/909519/t/2"></script>
       </div>
     </div>
-    <div class="row">
-      <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 col-xl-6 text-center videowrapper">
-        <iframe src="https://www.youtube-nocookie.com/embed/TnPx-965Igk?autoplay=1&mute=0" title="YouTube video player"
-          frameborder="0"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-          allowfullscreen></iframe>
-      </div>
-      <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 col-xl-6 text-center videowrapper">
-        <iframe src="https://www.youtube.com/embed/WB-y7_ymPJ4?autoplay=1&mute=1"
-          title="YouTube video player" frameborder="0"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-          allowfullscreen></iframe>       
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 col-xl-6 text-center videowrapper">
-        <iframe src="https://www.youtube-nocookie.com/embed/r44SqwmQ3Bo?autoplay=1&mute=1" title="YouTube video player"
-          frameborder="0"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-          allowfullscreen></iframe>
-      </div>
-      <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 col-xl-6 text-center videowrapper">
-        <iframe src="https://www.youtube-nocookie.com/embed/wc3Y6vI-poI?autoplay=1&mute=1" title="YouTube video player"
-          frameborder="0"
+    <div class="row" id="app">
+      <div v-for="url in urls" class="col-xs-6 col-sm-6 col-md-6 col-lg-6 col-xl-6 text-center videowrapper">
+        <iframe v-bind:src="url" title="YouTube video player" frameborder="0"
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
           allowfullscreen></iframe>
       </div>
     </div>
   </div>
+  </div>
 
   <!-- Optional JavaScript; choose one of the two! -->
-
   <!-- Option 1: Bootstrap Bundle with Popper -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
@@ -94,6 +73,39 @@
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
     -->
+
+  <script src="https://unpkg.com/vue"></script>
+  <script>
+    const app = new Vue({
+      el: '#app',
+      data: {
+        ids: [
+          'fgIYIIW1xMY',
+          'kzwbYu1diCY',
+          'TnPx-965Igk',
+          'WB-y7_ymPJ4',
+          'r44SqwmQ3Bo',
+          'wc3Y6vI-poI',
+          '1gVvSfBxdEQ',
+          'V9KZGs1MtP4'
+        ],
+        urls: []
+      },
+      methods: {
+        add: function (event) {
+          console.log('add function')
+        }
+      },
+      computed: {
+      },
+      created() {
+        this.ids.forEach(id => {
+          this.urls.push(`https://www.youtube-nocookie.com/embed/${id}?autoplay=1&mute=1`)
+        });
+        //console.log(this.urls);
+      }
+    })
+  </script>
 </body>
 
 </html>
