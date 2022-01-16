@@ -44,17 +44,19 @@
 
 <body>
   <div class="container-fluid bg-light">
-    <div class="row" style="height: 0;">
+    <div class="row" style="height:0;">
       <div class="col">
-        <a href='http://www.freevisitorcounters.com'>Free Counters</a>
-        <script type='text/javascript'
-          src='https://www.freevisitorcounters.com/auth.php?id=ac9ab2eec646d1d7d9f80d4132150a62e801511a'></script>
-        <script type="text/javascript" src="https://www.freevisitorcounters.com/en/home/counter/909519/t/2"></script>
+        <div id="sfcmak4j49ltkdwfwxfzcm6wn7e2nw6n92h"></div>
+        <script type="text/javascript"
+          src="https://counter2.stat.ovh/private/counter.js?c=mak4j49ltkdwfwxfzcm6wn7e2nw6n92h&down=async"
+          async></script><noscript><a href="https://www.freecounterstat.com" title="website hit counter"><img
+              src="https://counter2.stat.ovh/private/freecounterstat.php?c=mak4j49ltkdwfwxfzcm6wn7e2nw6n92h" border="0"
+              title="website hit counter" alt="website hit counter"></a></noscript>
       </div>
     </div>
     <div class="row" id="app">
       <div v-for="url in urls" class="col-xs-6 col-sm-6 col-md-6 col-lg-6 col-xl-6 text-center videowrapper">
-        <iframe v-bind:src="url" title="YouTube video player" frameborder="0"
+        <iframe :src="url" title="YouTube video player" frameborder="0"
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
           allowfullscreen></iframe>
       </div>
@@ -80,14 +82,16 @@
       el: '#app',
       data: {
         ids: [
-          'fgIYIIW1xMY',
+          'wc3Y6vI-poI',
           'kzwbYu1diCY',
           'TnPx-965Igk',
-          'WB-y7_ymPJ4',
           'r44SqwmQ3Bo',
-          'wc3Y6vI-poI',
+          'WB-y7_ymPJ4',
           '1gVvSfBxdEQ',
-          'V9KZGs1MtP4'
+          'V9KZGs1MtP4',
+          'W36s447UUE8',
+          'RmmRlztXETI',
+          'CV5Fooi8YJA'
         ],
         urls: []
       },
@@ -100,7 +104,9 @@
       },
       created() {
         this.ids.forEach(id => {
-          this.urls.push(`https://www.youtube-nocookie.com/embed/${id}?autoplay=1&mute=1`)
+          setTimeout(() => {
+            this.urls.push(`https://www.youtube.com/embed/${id}?autoplay=1&mute=1`);
+          }, 0000)
         });
         //console.log(this.urls);
       }
