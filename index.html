@@ -81,17 +81,15 @@
     const app = new Vue({
       el: '#app',
       data: {
-        ids: [
-          'wc3Y6vI-poI',
-          'kzwbYu1diCY',
-          'TnPx-965Igk',
-          'r44SqwmQ3Bo',
-          'WB-y7_ymPJ4',
-          '1gVvSfBxdEQ',
-          'V9KZGs1MtP4',
-          'W36s447UUE8',
-          'RmmRlztXETI',
-          'CV5Fooi8YJA'
+        videos: [
+          { id: 'wc3Y6vI-poI', name: 'thanthi', autoplay: 1, mute: 0 },
+          { id: 'kzwbYu1diCY', name: 'sun', autoplay: 0, mute: 1 },          
+          { id: 'r44SqwmQ3Bo', name: 'polimer', autoplay: 0, mute: 1 },
+          { id: 'WB-y7_ymPJ4', name: 'ndtv', autoplay: 0, mute: 1 },
+          { id: '1gVvSfBxdEQ', name: 'wion', autoplay: 0, mute: 1 },
+          { id: 'V9KZGs1MtP4', name: 'dw', autoplay: 0, mute: 1 },          
+          { id: 'RmmRlztXETI', name: 'news12', autoplay: 0, mute: 1 },
+          { id: 'CV5Fooi8YJA', name: 'trtworld', autoplay: 0, mute: 1 }
         ],
         urls: []
       },
@@ -103,9 +101,9 @@
       computed: {
       },
       created() {
-        this.ids.forEach(id => {
+        this.videos.forEach(x => {
           setTimeout(() => {
-            this.urls.push(`https://www.youtube.com/embed/${id}?autoplay=1&mute=1`);
+            this.urls.push(`https://www.youtube.com/embed/${x.id}?autoplay=${x.autoplay}&mute=${x.mute}`);
           }, 0000)
         });
         //console.log(this.urls);
